@@ -1,0 +1,6 @@
+{
+  "exec": "./node_modules/.bin/bddgen",
+  "ext": ".ts,.feature",
+  "watch": ["src/"],
+  "verbose": true
+}

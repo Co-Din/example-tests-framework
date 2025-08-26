@@ -1,0 +1,59 @@
+{
+  "name": "example-tests-framework",
+  "version": "1.0.0",
+  "description": "Example test framework",
+  "type": "module",
+  "keywords": [],
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "build": "pnpm clean && tsc --project tsconfig.dist.json",
+    "dev": "pnpm build --watch",
+    "clean": "rm -Rf dist || true",
+    "check": "eslint",
+    "check:audit": "audit-ci --config ./audit-ci.json5",
+    "check:lint": "eslint . --max-warnings=0 --config ./eslint.config.js",
+    "check:lint:fix": "eslint --fix",
+    "check:types": "tsc",
+    "check:types:watch": "tsc --watch",
+    "prepare": "husky",
+    "regenerate": "pnpm install && pnpm build"
+  },
+  "packageManager": "pnpm@10.5.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Co-Din/example-tests-framework.git"
+  },
+  "author": "Co-din",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Co-Din/example-tests-framework/issues"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^22.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "@typescript-eslint/parser": "^8.41.0",
+    "audit-ci": "^7.1.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "playwright-bdd": "^8.4.0",
+    "typescript": "5.5.3"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1 <2",
+    "playwright-bdd": ">=8 <9"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "playwright-bdd": "patches/playwright-bdd.patch"
+    }
+  }
+}

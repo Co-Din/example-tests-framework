@@ -1,0 +1,29 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+### Node Files ###
+node_modules/
+
+### Log files ###
+log
+*.log
+
+### Playwright and results from test runs ###
+!test-results/
+/test-results/*
+!playwright-report/
+/playwright-report/*
+/blob-report/
+/playwright/.cache/
+
+### DS_Store ###
+.DS_Store
+
+### IDE Files ###
+.vscode
+.idea/
+
+### Build Output ###
+dist/
+.features-gen/
+
+### Misc ###
